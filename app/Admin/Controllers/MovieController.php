@@ -81,7 +81,7 @@ class MovieController extends AdminController
 
         $form->text('title', __('Title'));
         $form->text('small_title', __('Small title'));
-        $form->image('image', __('Image'))->uniqueName()->move('public');
+        $form->image('image', __('Image'))->uniqueName();
         $form->editor('content');
         $form->datetime('vote_start', __('Vote start'))->default(date('Y-m-d H:i:s'));
         $form->datetime('vote_end', __('Vote end'))->default(date('Y-m-d H:i:s'));
