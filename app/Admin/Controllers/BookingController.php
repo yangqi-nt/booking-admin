@@ -2,20 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\MovieBooking;
+use App\Booking;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class MovieBookingController extends AdminController
+class BookingController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'MovieBooking';
+    protected $title = 'Booking';
 
     /**
      * Make a grid builder.
@@ -24,10 +24,10 @@ class MovieBookingController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new MovieBooking());
+        $grid = new Grid(new Booking());
 
         $grid->column('id', __('Id'));
-        $grid->column('movie_id', __('Movie id'));
+        $grid->column('vote_id', __('Vote id'));
         $grid->column('user_id', __('User id'));
         $grid->column('status', __('Status'));
         $grid->column('pay', __('Pay'));
@@ -46,10 +46,10 @@ class MovieBookingController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(MovieBooking::findOrFail($id));
+        $show = new Show(Booking::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('movie_id', __('Movie id'));
+        $show->field('movie_id', __('Vote id'));
         $show->field('user_id', __('User id'));
         $show->field('status', __('Status'));
         $show->field('pay', __('Pay'));
@@ -67,9 +67,9 @@ class MovieBookingController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new MovieBooking());
+        $form = new Form(new Booking());
 
-        $form->number('movie_id', __('Movie id'));
+        $form->number('movie_id', __('Vote id'));
         $form->number('user_id', __('User id'));
         $form->number('status', __('Status'));
         $form->number('pay', __('Pay'));

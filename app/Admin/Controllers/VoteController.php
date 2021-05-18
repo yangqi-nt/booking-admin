@@ -3,12 +3,13 @@
 namespace App\Admin\Controllers;
 
 use App\Movie;
+use App\Vote;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class MovieController extends AdminController
+class VoteController extends AdminController
 {
     /**
      * Title for current resource.
@@ -24,7 +25,7 @@ class MovieController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Movie());
+        $grid = new Grid(new Vote());
 
         $grid->column('id', __('Id'));
         $grid->column('title', __('Title'));
@@ -52,7 +53,7 @@ class MovieController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Movie::findOrFail($id));
+        $show = new Show(Vote::findOrFail($id));
 
         $show->field('id', __('Id'));
         $show->field('title', __('Title'));
@@ -77,7 +78,7 @@ class MovieController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Movie());
+        $form = new Form(new Vote());
 
         $form->text('title', __('Title'));
         $form->text('small_title', __('Small title'));

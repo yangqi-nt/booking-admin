@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MovieBooking extends Model
+class Vote extends Model
 {
 
 }

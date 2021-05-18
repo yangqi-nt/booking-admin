@@ -13,7 +13,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('users', UserController::class);
-    $router->resource('movies', MovieController::class);
-    $router->resource('movie-bookings', MovieBookingController::class);
+    $router->resource('votes', VoteController::class);
+    $router->resource('bookings', BookingController::class);
 
 });
